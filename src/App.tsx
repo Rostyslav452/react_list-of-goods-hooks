@@ -61,7 +61,7 @@ export const App = () => {
             'is-light': sortField !== SortType.Alphabetic,
           })}
           onClick={() => {
-            setField(SORT_ALPHABETIC);
+            setField(SortType.Alphabetic);
           }}
         >
           Sort alphabetically
@@ -73,7 +73,7 @@ export const App = () => {
             'is-light': sortField !== SortType.Length,
           })}
           onClick={() => {
-            setField(SORT_LENGTH);
+            setField(SortType.Length);
           }}
         >
           Sort by length
