@@ -16,24 +16,25 @@ export const goodsFromServer = [
   'Garlic',
 ];
 
-const SORT_ALPHABETIC = 'alphabetic';
-const SORT_LENGTH = 'length';
+enum SortType {
+  Alphabetic = 'alphabetic',
+  Length = 'length',
+}
 
 type Good = string;
-type SortField = typeof SORT_ALPHABETIC | typeof SORT_LENGTH | '';
 
 function getPreparedGoods(
   goods: Good[],
-  sortField: SortField,
+  sortField: SortType | '',
   isReverse: boolean = false,
 ) {
   const preparedGoods = [...goods];
 
   switch (sortField) {
-    case SORT_ALPHABETIC:
+    case SortType.Alphabetic:
       preparedGoods.sort((a, b) => a.localeCompare(b));
       break;
-    case SORT_LENGTH:
+    case SortType.Length:
       preparedGoods.sort((a, b) => a.length - b.length);
       break;
 
@@ -44,7 +45,7 @@ function getPreparedGoods(
 }
 
 export const App = () => {
-  const [sortField, setField] = useState<SortField>('');
+  const [sortField, setField] = useState<SortType | ''>('');
   const [isReverseField, setIsRevers] = useState(false);
 
   let preparedGoods = [...goodsFromServer];
