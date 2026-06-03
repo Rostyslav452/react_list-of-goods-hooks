@@ -58,7 +58,7 @@ export const App = () => {
         <button
           type="button"
           className={cn('button', 'is-info', {
-            'is-light': sortField !== SORT_ALPHABETIC,
+            'is-light': sortField !== SortType.Alphabetic,
           })}
           onClick={() => {
             setField(SORT_ALPHABETIC);
@@ -70,7 +70,7 @@ export const App = () => {
         <button
           type="button"
           className={cn('button', 'is-success', {
-            'is-light': sortField !== SORT_LENGTH,
+            'is-light': sortField !== SortType.Length,
           })}
           onClick={() => {
             setField(SORT_LENGTH);
